@@ -2,9 +2,13 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character';
-
 import { BASE_URL } from './mocks/constant'
+import styled from 'styled-components';
 
+const WrapperDiv = styled.div`
+  font-family: sand-serif;
+
+`;
 
 const App = () => {
   const [character, setCharacter] = useState([])
@@ -22,8 +26,6 @@ const App = () => {
   }, [])
 
   
-
-
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -32,12 +34,14 @@ const App = () => {
   // sync up with, if any.
 
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-      { character.map( char => {
-        return <Character key={char.id} person={char} />
-   })}
+    <WrapperDiv>
+      <div className='App'>
+        <h1 className='Header'>Characters</h1>
+        { character.map( char => {
+          return <Character key={char.id} person={char} />
+      })}
     </div>
+    </WrapperDiv>
   );
 }
 
